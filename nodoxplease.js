@@ -9,35 +9,32 @@
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
-
 (function() {
 
     function waitForElm(selector) {
         return new Promise(resolve => {
-            if (document.querySelector(selector)) {
-                return resolve(document.querySelector(selector));
-            }
-
             const observer = new MutationObserver(mutations => {
-                if (document.querySelector(selector)) {
+                const target = document.querySelector(selector);
+                if (target) {
                     observer.disconnect();
-                    resolve(document.querySelector(selector));
+                    resolve(target);
                 }
-            });
-
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
             });
         });
     }
 
-    waitForElm("#taw").then(elm => {
-        elm.remove();
+    waitForElm("#rhs").then(elm => {
+        const resultsForSection = elm.querySelector("#extabar");
+        if (resultsForSection) {
+            resultsForSection.remove();
+        }
     });
 
     waitForElm("#footcnt").then(elm => {
-        elm.remove();
+        const locationSection = elm.querySelector("#swml");
+        if (locationSection) {
+            locationSection.remove();
+        }
     });
 
 })();
