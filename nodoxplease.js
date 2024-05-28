@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NoDoxPlease
 // @namespace    http://hypixel.lol
-// @version      2024-04-01
+// @version      2024-05-28
 // @description  Removes Google's "Results for" section from search results and your location from the footer of the page.
 // @author       Euro-pol
 // @match        https://www.google.com/search*
