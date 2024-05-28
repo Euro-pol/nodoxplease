@@ -12,6 +12,8 @@
 
 (function() {
 
+    const elements = ["#taw", "#footcnt", "#oFNiHe"]
+
     function waitForElm(selector) {
         return new Promise(resolve => {
             if (document.querySelector(selector)) {
@@ -32,12 +34,10 @@
         });
     }
 
-    waitForElm("#taw").then(elm => {
-        elm.remove();
-    });
-
-    waitForElm("#footcnt").then(elm => {
-        elm.remove();
-    });
+    for (const element of elements) {
+        waitForElm(element).then(elm => {
+            elm.remove();
+        });
+    }
 
 })();
